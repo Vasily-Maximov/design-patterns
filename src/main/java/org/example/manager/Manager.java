@@ -1,5 +1,11 @@
 package org.example.manager;
 
+import org.example.decorator.model.Beverage;
+import org.example.decorator.model.DarkRoast;
+import org.example.decorator.model.Espresso;
+import org.example.decorator.service.Milk;
+import org.example.decorator.service.Mocha;
+import org.example.decorator.service.Whip;
 import org.example.observer.model.WeatherData;
 import org.example.observer.service.CurrentConditionsDisplay;
 import org.example.observer.service.ForecastDisplay;
@@ -54,5 +60,17 @@ public class Manager {
         weatherData.setMeasurements(80, 65, 30.4f);
         weatherData.setMeasurements(-5, 70, 29.2f);
         weatherData.setMeasurements(78, 90, 29.2f);
+    }
+
+    public static void createPatternDecorator() {
+        Beverage beverage = new Espresso();
+        System.out.printf("%s - $%.2f\n", beverage.getDescription(), beverage.cost());
+        beverage = new Milk(beverage);
+        System.out.printf("%s - $%.2f\n", beverage.getDescription(), beverage.cost());
+        beverage = new DarkRoast();
+        beverage = new Whip(beverage);
+        beverage = new Mocha(beverage);
+        beverage = new Mocha(beverage);
+        System.out.printf("%s - $%.2f\n", beverage.getDescription(), beverage.cost());
     }
 }
