@@ -6,6 +6,10 @@ import org.example.decorator.model.Espresso;
 import org.example.decorator.service.Milk;
 import org.example.decorator.service.Mocha;
 import org.example.decorator.service.Whip;
+import org.example.factory.model.Pizza;
+import org.example.factory.service.ChicagoPizzaStore;
+import org.example.factory.service.NYPizzaStore;
+import org.example.factory.service.PizzaStore;
 import org.example.observer.model.WeatherData;
 import org.example.observer.service.CurrentConditionsDisplay;
 import org.example.observer.service.ForecastDisplay;
@@ -72,5 +76,14 @@ public class Manager {
         beverage = new Mocha(beverage);
         beverage = new Mocha(beverage);
         System.out.printf("%s - $%.2f\n", beverage.getDescription(), beverage.cost());
+    }
+
+    public static void createPatternFactory() {
+        PizzaStore nyStore = new NYPizzaStore();
+        PizzaStore chicagoStore = new ChicagoPizzaStore();
+        Pizza pizza = nyStore.orderPizza("cheese");
+        System.out.println("Ethan ordered a " + pizza.getName() + "\n");
+        pizza = chicagoStore.orderPizza("cheese");
+        System.out.println("Joel ordered a " + pizza.getName() + "\n");
     }
 }
