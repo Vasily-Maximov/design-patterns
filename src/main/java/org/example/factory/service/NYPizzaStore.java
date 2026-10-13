@@ -1,24 +1,25 @@
 package org.example.factory.service;
 
-import org.example.factory.model.newyork.NYCheesePizza;
-import org.example.factory.model.newyork.NYClamPizza;
-import org.example.factory.model.newyork.NYPepperoniPizza;
-import org.example.factory.model.newyork.NYVeggiePizza;
 import org.example.factory.model.Pizza;
+import org.example.factory.model.CheesePizza;
+import org.example.factory.model.ClamPizza;
+import org.example.factory.model.PepperoniPizza;
+import org.example.factory.model.VeggiePizza;
 
 public class NYPizzaStore extends PizzaStore {
 
     @Override
     public Pizza createPizza(String item) {
+        PizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
         switch (item) {
             case "cheese":
-                return new NYCheesePizza();
+                return new CheesePizza(ingredientFactory, "New York Style Cheese Pizza");
             case "pepperoni":
-                return new NYPepperoniPizza();
+                return new PepperoniPizza(ingredientFactory, "New York Style Pepperoni Pizza");
             case "clam":
-                return new NYClamPizza();
+                return new ClamPizza(ingredientFactory, "New York Style Clam Pizza");
             case "veggie":
-                return new NYVeggiePizza();
+                return new VeggiePizza(ingredientFactory, "New York Style Veggie Pizza");
             default:
                 return null;
         }

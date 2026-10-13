@@ -7,6 +7,7 @@ import org.example.decorator.service.Milk;
 import org.example.decorator.service.Mocha;
 import org.example.decorator.service.Whip;
 import org.example.factory.model.Pizza;
+import org.example.factory.service.CaliforniaPizzaStore;
 import org.example.factory.service.ChicagoPizzaStore;
 import org.example.factory.service.NYPizzaStore;
 import org.example.factory.service.PizzaStore;
@@ -81,9 +82,15 @@ public class Manager {
     public static void createPatternFactory() {
         PizzaStore nyStore = new NYPizzaStore();
         PizzaStore chicagoStore = new ChicagoPizzaStore();
+        PizzaStore californiaStore = new CaliforniaPizzaStore();
         Pizza pizza = nyStore.orderPizza("cheese");
         System.out.println("Ethan ordered a " + pizza.getName() + "\n");
+        System.out.println(pizza.getName() + " ingredient: " + pizza + "\n");
         pizza = chicagoStore.orderPizza("cheese");
         System.out.println("Joel ordered a " + pizza.getName() + "\n");
+        System.out.println(pizza.getName() + " ingredient: " + pizza + "\n");
+        pizza = californiaStore.orderPizza("clam");
+        System.out.println("Bob ordered a " + pizza.getName() + "\n");
+        System.out.println(pizza.getName() + " ingredient: " + pizza + "\n");
     }
 }

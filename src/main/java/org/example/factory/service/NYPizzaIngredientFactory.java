@@ -1,7 +1,20 @@
 package org.example.factory.service;
 
-import org.example.factory.ingredient.*;
-import org.example.factory.veggies.*;
+import org.example.factory.ingredient.Dough;
+import org.example.factory.ingredient.Sauce;
+import org.example.factory.ingredient.Cheese;
+import org.example.factory.ingredient.Pepperoni;
+import org.example.factory.ingredient.Clams;
+import org.example.factory.ingredient.ReggianoCheese;
+import org.example.factory.ingredient.MarinaraSauce;
+import org.example.factory.ingredient.ThinCrustDough;
+import org.example.factory.ingredient.SlicedPepperoni;
+import org.example.factory.ingredient.FreshClams;
+import org.example.factory.veggies.Mushroom;
+import org.example.factory.veggies.Onion;
+import org.example.factory.veggies.Garlic;
+import org.example.factory.veggies.Veggies;
+import org.example.factory.veggies.RedPepper;
 
 public class NYPizzaIngredientFactory implements PizzaIngredientFactory {
 

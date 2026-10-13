@@ -13,7 +13,7 @@ public abstract class Pizza {
     protected  String name;
     protected  Dough dough;
     protected  Sauce sauce;
-    protected  Veggies veggies[];
+    protected  Veggies[] veggies;
     protected  Cheese cheese;
     protected  Pepperoni pepperoni;
     protected  Clams clam;
