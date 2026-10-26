@@ -1,12 +1,11 @@
 package org.example.iterator.model;
 
-import org.example.iterator.service.Iterator;
-import org.example.iterator.service.PancakeHouseIterator;
-
+import org.example.iterator.service.Menu;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
-public class PancakeHouseMenu {
+public class PancakeHouseMenu implements Menu {
 
     private final List<MenuItem> menuItems;
 
@@ -24,7 +23,9 @@ public class PancakeHouseMenu {
         menuItems.add(menuItem);
     }
 
-    public Iterator createIterator() {
-        return new PancakeHouseIterator(menuItems);
+    @Override
+    public Iterator<MenuItem> createIterator() {
+        return menuItems.iterator();
     }
+
 }

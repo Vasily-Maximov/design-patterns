@@ -1,8 +1,9 @@
 package org.example.iterator.service;
 
 import org.example.iterator.model.MenuItem;
+import java.util.Iterator;
 
-public class DinerMenuIterator implements Iterator {
+public class DinerMenuIterator implements Iterator<MenuItem> {
 
     private final MenuItem[] items;
     private int position = 0;
@@ -25,5 +26,10 @@ public class DinerMenuIterator implements Iterator {
         MenuItem menuItem = items[position];
         position = position + 1;
         return menuItem;
+    }
+
+    @Override
+    public void remove() {
+        throw new UnsupportedOperationException("You shouldn't be trying to remove menu items.");
     }
 }

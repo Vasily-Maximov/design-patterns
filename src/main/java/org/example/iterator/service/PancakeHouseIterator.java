@@ -1,7 +1,6 @@
 package org.example.iterator.service;
 
 import org.example.iterator.model.MenuItem;
-
 import java.util.List;
 
 public class PancakeHouseIterator implements Iterator {

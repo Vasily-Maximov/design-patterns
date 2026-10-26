@@ -16,14 +16,13 @@ import org.example.factory.service.PizzaStore;
 import org.example.iterator.model.DinerMenu;
 import org.example.iterator.model.PancakeHouseMenu;
 import org.example.iterator.model.Waitress;
+import org.example.iterator.service.Menu;
 import org.example.observer.model.WeatherData;
 import org.example.observer.service.CurrentConditionsDisplay;
 import org.example.observer.service.ForecastDisplay;
 import org.example.observer.service.StatisticsDisplay;
 import org.example.strategy.model.*;
 import org.example.strategy.service.*;
-
-import java.security.spec.RSAOtherPrimeInfo;
 
 public class Manager {
 
@@ -196,8 +195,8 @@ public class Manager {
     }
 
     public static void createPatternIterator() {
-        DinerMenu dinerMenu = new DinerMenu();
-        PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
+        Menu dinerMenu = new DinerMenu();
+        Menu pancakeHouseMenu = new PancakeHouseMenu();
         Waitress waitress = new Waitress(dinerMenu, pancakeHouseMenu);
         waitress.printMenu();
     }

@@ -1,9 +1,11 @@
 package org.example.iterator.model;
 
 import org.example.iterator.service.DinerMenuIterator;
-import org.example.iterator.service.Iterator;
+import org.example.iterator.service.Menu;
 
-public class DinerMenu {
+import java.util.Iterator;
+
+public class DinerMenu implements Menu {
 
     private static final int MAX_ITEMS = 6;
     private int numberOfItems = 0;
@@ -28,7 +30,9 @@ public class DinerMenu {
         }
     }
 
-    public Iterator createIterator() {
+    @Override
+    public Iterator<MenuItem> createIterator() {
         return new DinerMenuIterator(menuItems);
     }
+
 }
