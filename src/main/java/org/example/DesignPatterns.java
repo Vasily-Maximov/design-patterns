@@ -27,6 +27,14 @@ public class DesignPatterns {
                     System.out.println("Pattern FACTORY:");
                     Manager.createPatternFactory();
                     break;
+                case 5:
+                    System.out.println("Pattern COMMAND:");
+                    Manager.createPatternCommand();
+                    break;
+                case 6:
+                    System.out.println("Pattern ITERATOR:");
+                    Manager.createPatternIterator();
+                    break;
                 default:
                     break;
             }
@@ -43,6 +51,8 @@ public class DesignPatterns {
         System.out.println("2 - Pattern OBSERVER");
         System.out.println("3 - Pattern DECORATOR");
         System.out.println("4 - Pattern FACTORY");
+        System.out.println("5 - Pattern COMMAND");
+        System.out.println("6 - Pattern ITERATOR");
     }
 
 }
