@@ -35,6 +35,10 @@ public class DesignPatterns {
                     System.out.println("Pattern ITERATOR:");
                     Manager.createPatternIterator();
                     break;
+                case 7:
+                    System.out.println("Pattern COMPOSITE:");
+                    Manager.createPatternComposite();
+                    break;
                 default:
                     break;
             }
@@ -53,6 +57,7 @@ public class DesignPatterns {
         System.out.println("4 - Pattern FACTORY");
         System.out.println("5 - Pattern COMMAND");
         System.out.println("6 - Pattern ITERATOR");
+        System.out.println("7 - Pattern COMPOSITE");
     }
 
 }

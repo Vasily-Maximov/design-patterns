@@ -2,24 +2,24 @@ package org.example.iterator.model;
 
 import org.example.iterator.service.Menu;
 import java.util.Iterator;
+import java.util.List;
 
 public class Waitress {
 
-    private final Menu dinerMenu;
-    private final Menu pancakeHouseMenu;
+    private final List<Menu> menus;
 
-    public Waitress(Menu dinerMenu, Menu pancakeHouseMenu) {
-        this.dinerMenu = dinerMenu;
-        this.pancakeHouseMenu = pancakeHouseMenu;
+
+    public Waitress(List<Menu> menus) {
+        this.menus = menus;
     }
 
     public void printMenu() {
-        Iterator<MenuItem> pancakeIterator = pancakeHouseMenu.createIterator();
-        Iterator<MenuItem> dinerIterator = dinerMenu.createIterator();
-        System.out.println("MENU\n----\nBREAKFAST");
-        printMenu(pancakeIterator);
-        System.out.println("\nLUNCH");
-        printMenu(dinerIterator);
+        Iterator<Menu> menuIterator = menus.iterator();
+        System.out.println("MENU\n----");
+        while (menuIterator.hasNext()) {
+            Menu menu = menuIterator.next();
+            printMenu(menu.createIterator());
+        }
     }
 
     private void printMenu(Iterator iterator) {
