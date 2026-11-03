@@ -1,9 +1,16 @@
 package org.example.manager;
 
+import org.example.Adapter.model.WildTurkey;
+import org.example.Adapter.service.Turkey;
+import org.example.Adapter.service.TurkeyAdapter;
 import org.example.Composite.model.MenuItem;
 import org.example.Composite.service.MenuComponent;
 import org.example.command.model.*;
 import org.example.command.service.*;
+import org.example.condition.model.GumballMachine;
+import org.example.condition.service.HasQuarterState;
+import org.example.condition.service.NoQuarterState;
+import org.example.condition.service.State;
 import org.example.decorator.model.Beverage;
 import org.example.decorator.model.DarkRoast;
 import org.example.decorator.model.Espresso;
@@ -269,5 +276,63 @@ public class Manager {
 
         org.example.Composite.model.Waitress waitress = new org.example.Composite.model.Waitress(allMenus);
         waitress.printMenu();
+    }
+
+    public static void createPatternAdapter() {
+        org.example.Adapter.service.Duck duck = new org.example.Adapter.model.MallardDuck();
+        Turkey turkey = new WildTurkey();
+        org.example.Adapter.service.Duck turkeyAdapter = new TurkeyAdapter(turkey);
+
+        System.out.println("The Turkey says...");
+        turkey.gobble();
+        turkey.fly();
+
+        System.out.println("\nThe Duck says...");
+        testDuck(duck);
+
+        System.out.println("\nThe TurkeyAdapter says...");
+        testDuck(turkeyAdapter);
+    }
+
+    static void testDuck(org.example.Adapter.service.Duck duck) {
+        duck.quack();
+        duck.fly();
+    }
+
+    public static void createPatternCondition() {
+        GumballMachine gumballMachine = new GumballMachine(5);
+        System.out.println(gumballMachine);
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        System.out.println(gumballMachine);
+        gumballMachine.insertQuarter();
+        gumballMachine.ejectQuarter();
+        gumballMachine.turnCrank();
+        System.out.println(gumballMachine);
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.ejectQuarter();
+        System.out.println(gumballMachine);
+        gumballMachine.insertQuarter();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        gumballMachine.insertQuarter();
+        gumballMachine.turnCrank();
+        System.out.println(gumballMachine);
+        System.out.println("--- TEST N2 ---");
+        GumballMachine gumballMachineTwo = new GumballMachine(5);
+        System.out.println(gumballMachineTwo);
+        gumballMachineTwo.insertQuarter();
+        gumballMachineTwo.turnCrank();
+        System.out.println(gumballMachineTwo);
+        gumballMachineTwo.insertQuarter();
+        gumballMachineTwo.turnCrank();
+        gumballMachineTwo.insertQuarter();
+        gumballMachineTwo.turnCrank();
+        System.out.println(gumballMachineTwo);
     }
 }

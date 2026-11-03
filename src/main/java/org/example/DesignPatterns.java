@@ -39,6 +39,14 @@ public class DesignPatterns {
                     System.out.println("Pattern COMPOSITE:");
                     Manager.createPatternComposite();
                     break;
+                case 8:
+                    System.out.println("Pattern ADAPTER:");
+                    Manager.createPatternAdapter();
+                    break;
+                case 9:
+                    System.out.println("Pattern CONDITION:");
+                    Manager.createPatternCondition();
+                    break;
                 default:
                     break;
             }
@@ -58,6 +66,8 @@ public class DesignPatterns {
         System.out.println("5 - Pattern COMMAND");
         System.out.println("6 - Pattern ITERATOR");
         System.out.println("7 - Pattern COMPOSITE");
+        System.out.println("8 - Pattern ADAPTER");
+        System.out.println("9 - Pattern CONDITION");
     }
 
 }
