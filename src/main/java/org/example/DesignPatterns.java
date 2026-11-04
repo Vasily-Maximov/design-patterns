@@ -47,6 +47,10 @@ public class DesignPatterns {
                     System.out.println("Pattern CONDITION:");
                     Manager.createPatternCondition();
                     break;
+                case 10:
+                    System.out.println("Patterns Together:");
+                    Manager.createPatternsTogether();
+                    break;
                 default:
                     break;
             }
@@ -68,6 +72,7 @@ public class DesignPatterns {
         System.out.println("7 - Pattern COMPOSITE");
         System.out.println("8 - Pattern ADAPTER");
         System.out.println("9 - Pattern CONDITION");
+        System.out.println("10 -Patterns TOGETHER");
     }
 
 }

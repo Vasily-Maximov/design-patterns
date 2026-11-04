@@ -2,6 +2,7 @@ package org.example.condition.model;
 
 import org.example.condition.service.*;
 
+
 public class GumballMachine {
 
     private final State soldOutState;
@@ -9,10 +10,12 @@ public class GumballMachine {
     private final State hasQuarterState;
     private final State soldState;
     private final State winnerState;
+    private final String location;
     private State state;
-    private int count = 0;
+    private int count;
 
-    public GumballMachine(int numberGumballs) {
+    public GumballMachine(String location, int numberGumballs) {
+        this.location = location;
         soldOutState = new SoldOutState(this);
         noQuarterState = new NoQuarterState(this);
         hasQuarterState = new HasQuarterState(this);
@@ -83,12 +86,16 @@ public class GumballMachine {
         return winnerState;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
     @Override
     public String toString() {
-        return "\nGumballMachine{\n" + "Mighty Gumball, Inc.\n" +
-                "Java-enabled Standing Gumball Model #20004\n" +
-                "state = " + state.toString() + "\n" +
-                "count = " + count + " gumballs" +
-                '}' + "\n";
+        return "\nGumballMachine{" +
+                "location='" + location + '\'' +
+                ", state=" + state +
+                ", count=" + count +
+                '}';
     }
 }

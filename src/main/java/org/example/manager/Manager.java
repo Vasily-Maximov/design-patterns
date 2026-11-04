@@ -31,9 +31,15 @@ import org.example.observer.model.WeatherData;
 import org.example.observer.service.CurrentConditionsDisplay;
 import org.example.observer.service.ForecastDisplay;
 import org.example.observer.service.StatisticsDisplay;
+import org.example.patterns_together.model.DuckSimulator;
+import org.example.patterns_together.service.*;
 import org.example.strategy.model.*;
+import org.example.strategy.model.MallardDuck;
+import org.example.strategy.model.RedheadDuck;
+import org.example.strategy.model.RubberDuck;
 import org.example.strategy.service.*;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -300,7 +306,7 @@ public class Manager {
     }
 
     public static void createPatternCondition() {
-        GumballMachine gumballMachine = new GumballMachine(5);
+        GumballMachine gumballMachine = new GumballMachine("Seattle", 5);
         System.out.println(gumballMachine);
         gumballMachine.insertQuarter();
         gumballMachine.turnCrank();
@@ -324,7 +330,7 @@ public class Manager {
         gumballMachine.turnCrank();
         System.out.println(gumballMachine);
         System.out.println("--- TEST N2 ---");
-        GumballMachine gumballMachineTwo = new GumballMachine(5);
+        GumballMachine gumballMachineTwo = new GumballMachine("Seattle", 5);
         System.out.println(gumballMachineTwo);
         gumballMachineTwo.insertQuarter();
         gumballMachineTwo.turnCrank();
@@ -334,5 +340,12 @@ public class Manager {
         gumballMachineTwo.insertQuarter();
         gumballMachineTwo.turnCrank();
         System.out.println(gumballMachineTwo);
+    }
+
+    public static void createPatternsTogether() {
+        DuckSimulator simulator = new DuckSimulator();
+        AbstractDuckFactory duckFactory = new CountingDuckFactory();
+        AbstractGooseFactory gooseFactory = new GooseFactory();
+        simulator.simulate(duckFactory, gooseFactory);
     }
 }
