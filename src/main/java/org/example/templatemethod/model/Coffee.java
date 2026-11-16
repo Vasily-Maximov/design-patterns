@@ -1,5 +1,7 @@
 package org.example.templatemethod.model;
 
+import org.example.templatemethod.service.CaffeineBeverage;
+
 public class Coffee extends CaffeineBeverage {
 
     @Override

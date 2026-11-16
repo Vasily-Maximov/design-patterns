@@ -51,6 +51,10 @@ public class DesignPatterns {
                     System.out.println("Patterns Together:");
                     Manager.createPatternsTogether();
                     break;
+                case 11:
+                    System.out.println("Template method:");
+                    Manager.createTemplateMethod();
+                    break;
                 default:
                     break;
             }
@@ -73,6 +77,7 @@ public class DesignPatterns {
         System.out.println("8 - Pattern ADAPTER");
         System.out.println("9 - Pattern CONDITION");
         System.out.println("10 -Patterns TOGETHER");
+        System.out.println("11 -Template METHOD");
     }
 
 }

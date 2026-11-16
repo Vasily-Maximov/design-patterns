@@ -38,6 +38,9 @@ import org.example.strategy.model.MallardDuck;
 import org.example.strategy.model.RedheadDuck;
 import org.example.strategy.model.RubberDuck;
 import org.example.strategy.service.*;
+import org.example.templatemethod.model.CoffeeWithHook;
+import org.example.templatemethod.model.Tea;
+import org.example.templatemethod.service.CaffeineBeverage;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -347,5 +350,14 @@ public class Manager {
         AbstractDuckFactory duckFactory = new CountingDuckFactory();
         AbstractGooseFactory gooseFactory = new GooseFactory();
         simulator.simulate(duckFactory, gooseFactory);
+    }
+
+    public static void createTemplateMethod() {
+        CaffeineBeverage tea = new Tea();
+        CoffeeWithHook coffeeHook = new CoffeeWithHook();
+        System.out.println("\nMaking tea...");
+        tea.prepareRecipe();
+        System.out.println("\nMaking coffee...");
+        coffeeHook.prepareRecipe();
     }
 }
